@@ -1,5 +1,5 @@
 
-var data= $('value');
+var userAnswer = [];
 var correctAnswer = 0;
 var inCorrectAnswer = 0;
 var unanswered = 0;
@@ -25,6 +25,10 @@ var answers =["Nick", "Rachel", "Chris"];
 
 function startGame() {
     $(".data").css("display", "none");
+
+    $("input:radio:checked").each(function(){
+    	userAnswer.push("value")
+    });
     for (var i = 0; i < numberofQuestions.length; i++) {
         if (data[i].checked) {
             if (answers.indexOf(data[i]) !== -1 ) {
@@ -72,13 +76,13 @@ for(var i=0; i<question3.choices.length; i++){
 	$("#question3").append($('<label>').text(question3.choices[i]));}
 
 
+
     $(".start").css("display", "none");
     $(".data").css("display", "inline");
     
 
     var startCounter = setInterval(function() {
         timeLeft--;
-        timeLeft = timeLeft - 1;
         if (timeLeft <= 0) {
             clearInterval(timeLeft);
             startGame();
