@@ -27,7 +27,7 @@ function startGame() {
     $(".data").css("display", "none");
     for (var i = 0; i < numberofQuestions.length; i++) {
         if (data[i].checked) {
-            if (answers.indexOf(data[i].value) !== -1 ) {
+            if (answers.indexOf(data[i]) !== -1 ) {
                 correctAnswer++;
 
             } else {
