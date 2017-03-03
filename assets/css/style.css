@@ -1,0 +1,33 @@
+body {
+    background: url("../images/roses.jpg") no-repeat top fixed;
+    background-size:100% 100%;
+
+
+}
+
+
+.data{display: none;}
+
+.content{
+	position: absolute;
+	top:20%;
+	left:10%;
+	width:20%;
+	height: 20%;
+text-align: center;
+color:white;
+font-family:cursive;
+font-size:125%;
+}
+
+.label{
+	margin-top: 10px;
+}
+
+.start,.done{
+	background:white;
+	color:black;
+
+}
+
+
