@@ -83,7 +83,7 @@ for(var i=0; i<question3.choices.length; i++){
             clearInterval(timeLeft);
             startGame();
         }
-        $(".counter").html("You have " + timeLeft + " secounds remaining to complete the questions");
+        $(".counter").html("You have " + timeLeft + " seconds remaining to complete the questions");
     }, 1000);
 
 $(".data").append()
