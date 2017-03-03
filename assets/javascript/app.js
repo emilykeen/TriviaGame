@@ -30,8 +30,8 @@ function startGame() {
     	userAnswer.push("value")
     });
     for (var i = 0; i < numberofQuestions.length; i++) {
-        if (data[i].checked) {
-            if (answers.indexOf(data[i]) !== -1 ) {
+        if (userAnswer[i].checked) {
+            if (answers.indexOf(userAnswer[i]) !== -1 ) {
                 correctAnswer++;
 
             } else {
