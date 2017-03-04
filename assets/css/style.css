@@ -14,14 +14,9 @@ body {
 	left:10%;
 	width:20%;
 	height: 20%;
-text-align: center;
-color:white;
-font-family:cursive;
-font-size:125%;
-}
-
-.label{
-	margin-top: 10px;
+	text-align: center;
+	color:white;
+	font-size:125%;
 }
 
 .start,.done{
