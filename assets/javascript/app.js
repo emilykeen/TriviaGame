@@ -1,37 +1,15 @@
-
-var userAnswer = [];
+var data = $('input');
+var questions =$('h1');
 var correctAnswer = 0;
 var inCorrectAnswer = 0;
 var unanswered = 0;
 var timeLeft = 30;
-var numberofQuestions=3;
-var question1 ={
 
-	question:"who is the current bachelor?",
-	choices: ["Nick", "Sean", "Dan", "Ben"],
-};
-
-var question2 ={
-
-	question:"who is the next bachelorette?",
-	choices: ["Raven", "Rachel", "Sarah", "none of the above"],
-};
-var question3 ={
-
-	question:"who hosts the Bachelor and Bachelorette?",
-	choices: ["Jim", "Sam", "Chris", "Tom"],
-};
-var answers =["Nick", "Rachel", "Chris"];
-
-function startGame() {
+function finishGame() {
     $(".data").css("display", "none");
-
-    $("input:radio:checked").each(function(){
-    	userAnswer.push("value")
-    });
-    for (var i = 0; i < numberofQuestions.length; i++) {
-        if (userAnswer[i].checked) {
-            if (answers.indexOf(userAnswer[i]) !== -1 ) {
+    for (var i = 0; i < data.length; i++) {
+        if (data[i].checked) {
+            if ((data[i].value) === "correct") {
                 correctAnswer++;
 
             } else {
@@ -41,59 +19,35 @@ function startGame() {
     }
 
     var result = correctAnswer + inCorrectAnswer;
-   
+    var totalQuestions = questions.length;
 
-    if (result !== numberofQuestions) {
-        unanswered = numberofQuestions - result;
-
-    }
-
-    
+    if (result !== totalQuestions) {
+        unanswered = totalQuestions - result;
+ }  
     $('.correct').html("you have " + correctAnswer + " that are correct");
     $('.incorrect').html("you have " + inCorrectAnswer + " that are incorrect");
-    $('.unanswered').html("you have " + unanswered + " that you did not select");
+    $('.unanswered').html("you have " + unanswered + " that you did not answer");
 }
 
 
 $('.start').on("click", function() {
 
-$("#question1").append($("<h3>"+ question1.question +"</h3>"));
-for(var i=0; i<question1.choices.length; i++){
-	$("#question1").append($("<input type= 'radio' name='1'>",
-		{value:question1.choices[i]}));
-	$("#question1").append($('<label>').text(question1.choices[i]));}
-
-$("#question2").append($("<h3>"+ question2.question +"</h3>"));
-for(var i=0; i<question2.choices.length; i++){
-	$("#question2").append($("<input type= 'radio' name='2'>",
-		{value:question2.choices[i]}));
-	$("#question2").append($('<label>').text(question2.choices[i]));}
-
-	$("#question3").append($("<h3>"+ question3.question +"</h3>"));
-for(var i=0; i<question3.choices.length; i++){
-	$("#question3").append($("<input type= 'radio' name='3'>",
-		{value:question3.choices[i]}));
-	$("#question3").append($('<label>').text(question3.choices[i]));}
-
-
-
     $(".start").css("display", "none");
     $(".data").css("display", "inline");
-    
 
     var startCounter = setInterval(function() {
         timeLeft--;
         if (timeLeft <= 0) {
             clearInterval(timeLeft);
-            startGame();
+            finishGame();
         }
-        $(".counter").html("You have " + timeLeft + " seconds remaining to complete the questions");
+        $(".counter").html("You have " + timeLeft + " secounds remaining to complete the questions");
     }, 1000);
 
 $(".data").append()
     $(".done").on("click", function() {
         clearInterval(startCounter);
-        startGame();
+        finishGame();
 
     });
 });
